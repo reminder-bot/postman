@@ -35,7 +35,6 @@ class Reminder(Base):
         return '<Reminder "{}" <#{}> {}s>'.format(self.message, self.channel, self.time)
 
 
-
 class Deletes(Base):
     __tablename__ = 'deletes'
 

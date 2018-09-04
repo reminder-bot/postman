@@ -24,7 +24,7 @@ while True:
 
         try:
             if reminder.interval is None:
-                requests.post(url, {'content': reminder.message, 'name': 'Reminders', 'avatar_url': 'https://raw.githubusercontent.com/reminder-bot/logos/master/Remind_Me_Bot_Logo_PPic.jpg'})
+                requests.post(url, {'content': reminder.message, 'username': 'Reminders', 'avatar_url': 'https://raw.githubusercontent.com/reminder-bot/logos/master/Remind_Me_Bot_Logo_PPic.jpg'})
 
                 print('{}: Administered reminder to {}'.format(datetime.utcnow().strftime('%H:%M:%S'), reminder.webhook))
 
@@ -43,14 +43,14 @@ while True:
 
                     wait_time = int(chars)
 
-                    t = requests.post(url_w, {'content': reminder.message[len('-del_after_' + chars):], 'name': 'Reminders', 'avatar_url': 'https://raw.githubusercontent.com/reminder-bot/logos/master/Remind_Me_Bot_Logo_PPic.jpg'})
+                    t = requests.post(url_w, {'content': reminder.message[len('-del_after_' + chars):], 'username': 'Reminders', 'avatar_url': 'https://raw.githubusercontent.com/reminder-bot/logos/master/Remind_Me_Bot_Logo_PPic.jpg'})
 
                     d = Deletes(time=time.time() + wait_time, channel=reminder.channel, message=t.json()['id'])
 
                     session.add(d)
 
                 else:
-                    requests.post(url, {'content': reminder.message, 'name': 'Reminders', 'avatar_url': 'https://raw.githubusercontent.com/reminder-bot/logos/master/Remind_Me_Bot_Logo_PPic.jpg'})
+                    requests.post(url, {'content': reminder.message, 'username': 'Reminders', 'avatar_url': 'https://raw.githubusercontent.com/reminder-bot/logos/master/Remind_Me_Bot_Logo_PPic.jpg'})
 
                 print('{}: Administered interval to {} (Reset for {} seconds)'.format(datetime.utcnow().strftime('%H:%M:%S'), reminder.webhook, reminder.interval))
 
