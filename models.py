@@ -22,7 +22,6 @@ class Reminder(Base):
     id = Column(Integer, primary_key=True, unique=True)
     message = Column(Unicode(2000))
     channel = Column(BigInteger)
-    guild = Column(BigInteger)
     time = Column(BigInteger)
     interval = Column(Integer)
 
@@ -33,15 +32,6 @@ class Reminder(Base):
 
     def __repr__(self):
         return '<Reminder "{}" <#{}> {}s>'.format(self.message, self.channel, self.time)
-
-
-class Deletes(Base):
-    __tablename__ = 'deletes'
-
-    map_id = Column(Integer, primary_key=True)
-    message = Column(BigInteger)
-    channel = Column(BigInteger)
-    time = Column(BigInteger)
 
 
 if passwd:
